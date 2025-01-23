@@ -37,7 +37,15 @@ The script creates a small status box that shows:
 
 - The script needs to be re-run each time you refresh the Facebook page
 - Make sure you're on Facebook's website before running the script
-- The script is currently configured with Italian text ("Rispondi al poke") - modify if needed for other languages
+- The script supports multiple languages including:
+  - English
+  - Italian
+  - Spanish
+  - French
+  - German
+  - Portuguese
+  - Dutch
+  - Russian
 
 ## Disclaimer
 

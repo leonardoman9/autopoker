@@ -27,7 +27,24 @@ function updateStatusDisplay() {
 }
 
 function autoPoke() {
-    const pokeButtons = document.querySelectorAll('[aria-label*="Rispondi al poke"]');
+    // Common translations of "Poke back" in different languages
+    const pokeTranslations = [
+        'Poke Back',      // English
+        'Rispondi al poke', // Italian
+        'Devolver el toque', // Spanish
+        'Renvoyer un poke', // French
+        'Zurückstupsen',    // German
+        'Retribuir',        // Portuguese
+        'Poke terug',       // Dutch
+        'Отправить пок в ответ' // Russian
+    ];
+    
+    // Create a selector that matches any of these translations
+    const selector = pokeTranslations
+        .map(text => `[aria-label*="${text}"]`)
+        .join(', ');
+    
+    const pokeButtons = document.querySelectorAll(selector);
     
     pokeButtons.forEach((button, index) => {
         setTimeout(() => {
@@ -36,9 +53,9 @@ function autoPoke() {
                 pokesCount++;
                 lastPokeTime = Date.now();
                 updateStatusDisplay();
-                console.log(`Inviati ${pokesCount} poke`);
+                console.log(`Poke sent (${pokesCount} total)`);
             } catch (error) {
-                console.error('Errore nell\'invio del poke:', error);
+                console.error('Error sending poke:', error);
             }
         }, index * 500);
     });
